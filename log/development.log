@@ -284,6 +284,7 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms)
 
 
+<<<<<<< HEAD
   [1m[35m (0.9ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
@@ -303,3 +304,5 @@ Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms)
   [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
   [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+=======
+>>>>>>> origin/master
