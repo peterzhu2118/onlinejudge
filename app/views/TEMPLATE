@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Template by quackit.com -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>2 Column Layout &mdash; Left Menu with Header &amp; Footer</title>	
+	</head>
+	
+	<body>		
+
+		<header id="header">
+			<div class="innertube">
+				<h1>Header...</h1>
+			</div>
+		</header>
+		
+		<div id="wrapper">
+		
+			<main>
+				<div id="content">
+					<div class="innertube">
+						<h1>Heading</h1>
+						<p><script>generateText(20)</script></p>
+					</div>
+				</div>
+			</main>
+			
+			<nav id="nav">
+				<div class="innertube">
+					<h3>Left heading</h3>
+					<ul>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+						<li><a href="#">Link 4</a></li>
+						<li><a href="#">Link 5</a></li>
+					</ul>
+					<h3>Left heading</h3>
+					<ul>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+						<li><a href="#">Link 4</a></li>
+						<li><a href="#">Link 5</a></li>
+					</ul>
+					<h3>Left heading</h3>
+					<ul>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+						<li><a href="#">Link 4</a></li>
+						<li><a href="#">Link 5</a></li>
+					</ul>
+				</div>
+			</nav>
+		
+		</div>
+		
+		<footer id="footer">
+			<div class="innertube">
+				<p>Footer...</p>
+			</div>
+		</footer>
+	
+	</body>
+</html>
