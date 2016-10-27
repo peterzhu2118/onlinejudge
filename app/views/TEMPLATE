@@ -7,12 +7,6 @@
 	</head>
 	
 	<body>		
-
-		<header id="header">
-			<div class="innertube">
-				<h1>Header...</h1>
-			</div>
-		</header>
 		
 		<div id="wrapper">
 		
@@ -55,12 +49,6 @@
 			</nav>
 		
 		</div>
-		
-		<footer id="footer">
-			<div class="innertube">
-				<p>Footer...</p>
-			</div>
-		</footer>
 	
 	</body>
 </html>

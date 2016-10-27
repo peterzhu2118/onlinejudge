@@ -1,0 +1,2 @@
+class PanelController < ApplicationController
+end

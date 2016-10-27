@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-<<<<<<< HEAD
   validates :first_name, presence: true, length: {maximum: 20}
   validates :last_name, presence: true, length: {maximum: 20}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -9,6 +8,4 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: {minimum: 6}
 
-=======
->>>>>>> origin/master
 end

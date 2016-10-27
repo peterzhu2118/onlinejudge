@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Login - CS Club Online Judge</title>	
+	</head>
+	
+	<body>				
+		<div id="wrapper">
+		
+			<main>
+				<div id="content">
+					<div class="innertube">
+						<h1>User Login <%=logged_in?%></h1>
+						<% flash.each do |name, msg| -%>
+							<div class="warning">
+								<%= content_tag :div, msg, class: name %>
+							</div>
+						<% end -%>
+
+						<%= form_for(:session, url: login_path) do |f| %>
+							<%= f.label :email %> <br>
+							<%= f.email_field :email %> <br> <br>
+
+							<%= f.label :password %> <br>
+							<%= f.password_field :password %> <br><br>
+
+							<%= f.submit "Log in" %>
+						<% end %>
+					</div>
+				</div>
+			</main>
+			
+			<nav id="nav">
+				<div class="innertube">
+				</div>
+			</nav>
+		
+		</div>
+	
+	</body>
+</html>
