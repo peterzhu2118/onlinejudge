@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Panel - CS Club Online</title>	
+		<title>Panel - CS Club Online Judge</title>	
 	</head>
 	
 	<body>		
@@ -12,8 +29,28 @@
 			<main>
 				<div id="content">
 					<div class="innertube">
-						<td><%= button_to 'Log out', {:controller => "sessions",:action => "destroy"} , :method=>:post  %></td>
-						<h1>Welcome, <%=current_user.first_name%></h1>
+						<%= button_to("Logout", destroy_user_session_path, :method => :delete) %>
+
+						<br/>
+						
+						<h1> Contests </h1>
+
+						<br />
+
+						<table>
+						<tr>
+							<th>Contest</th>
+							<th>Start Time</th>
+							<th>End Time</th>
+						</tr>
+						<%= Contest.find_each do |contest| %>
+							<tr>
+							<th> <%= link_to contest.title, "/contest/#{contest.id}" %> </th> 
+							<th> <%= contest.begin_time %> </th>
+							<th> <%= contest.end_time %> </th>
+							</tr>
+						<% end %>
+						</table>
 					</div>
 				</div>
 			</main>
