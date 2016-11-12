@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Problem - CS Club Online Judge</title>	
+		<title>Submit - CS Club Online Judge</title>	
 	</head>
 	
 	<body>		
@@ -12,15 +12,11 @@
 			<main>
 				<div id="content">
 					<div class="innertube">
-						<h1><%= @problem.title %></h1>
-						Runtime: <%= @problem.runtime %>s
-						<br/>
-						Memory limit: <%= @problem.memory %>M
-						<br/>
-						<h2>Problem:</h2>
-						<%= simple_format(@problem.problem) %>
-						<%= link_to "Submit", "/problem/#{params[:contest_id]}/#{params[:problem_id]}/submit" %>
-
+						<h1>Submit</h1>
+						<%= form_tag "/problem/#{params[:contest_id]}/#{params[:problem_id]}/submit", :multipart => true do%>
+							<%= file_field_tag "file" %>
+							<%= submit_tag %>
+						<% end %>
 					</div>
 				</div>
 			</main>
