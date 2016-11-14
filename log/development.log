@@ -16380,3 +16380,1093 @@ Processing by ProblemsController#submit as HTML
 Completed 200 OK in 33ms (Views: 26.7ms | ActiveRecord: 5.0ms)
 
 
+Started GET "/" for ::1 at 2016-11-13 12:10:25 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:WelcomeController> at /home/peter/Ruby/onlinejudge/app/controllers/welcome_controller.rb:2)
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 1087ms (Views: 1057.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-11-13 12:10:28 -0800
+Started GET "/users/sign_in" for ::1 at 2016-11-13 12:10:28 -0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-11-13 20:10:28 UTC], ["last_sign_in_at", 2016-11-11 22:30:45 UTC], ["sign_in_count", 11], ["updated_at", 2016-11-13 20:10:28 UTC], ["id", 1]]
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/panel
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 99ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/panel" for ::1 at 2016-11-13 12:10:28 -0800
+Processing by SessionsController#panel as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/panel.html.erb within layouts/application
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" ORDER BY "contests"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered sessions/panel.html.erb within layouts/application (32.5ms)
+Completed 200 OK in 55ms (Views: 52.4ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-11-13 12:10:30 -0800
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"EH1HqVlp62rcNzWGR7d2hh07Knsjnj8UuhVWAQSIDiBXVr6O/LRBHHkGb3aaIdZVujCuk1hGpo9LxrmP3GhWzQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", nil], ["updated_at", 2016-11-13 20:10:30 UTC], ["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 19ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/" for ::1 at 2016-11-13 12:10:30 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-11-13 12:10:31 -0800
+Started GET "/users/sign_in" for ::1 at 2016-11-13 12:10:31 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (65.2ms)
+Completed 200 OK in 114ms (Views: 93.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-11-13 12:12:12 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 40ms (Views: 28.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/password/new" for ::1 at 2016-11-13 12:12:15 -0800
+Processing by Devise::PasswordsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 70ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for ::1 at 2016-11-13 12:12:17 -0800
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UG1uYsoolzaj/xHTZMwUjE47zKHZ/Vjnloa72RQgvX80d20komOq+n7KIWoYdnXOHaXSKL9o0S0oHJMowDUc8g==", "user"=>{"email"=>""}, "commit"=>"Send me reset password instructions"}
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 50ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for ::1 at 2016-11-13 12:12:18 -0800
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f0li/Hw7n/tek2hTINaRlRGtu3xwpQo/vVkr0KysFuhCuaLqAI2wEeVnulm736CvqUrpw+jfyl9YiL1r8Midmw==", "user"=>{"email"=>""}, "commit"=>"Send me reset password instructions"}
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/passwords/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for ::1 at 2016-11-13 12:12:22 -0800
+Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/shZXE0/88UAE0aFvCNLreO56Zd6EEGF2jl4GvY5Me/DOJlKMYncL7vnlI8nKnqXW167KOJqgeU/6O6hql26nA==", "user"=>{"email"=>"peter@peterzhu.ca"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "peter@peterzhu.ca"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."reset_password_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["reset_password_token", "38210e822be1fea9e2f3075d9b190cb98177eab8f1afa897be33a0ef49109d51"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "reset_password_token" = ?, "reset_password_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["reset_password_token", "38210e822be1fea9e2f3075d9b190cb98177eab8f1afa897be33a0ef49109d51"], ["reset_password_sent_at", 2016-11-13 20:12:22 UTC], ["updated_at", 2016-11-13 20:12:22 UTC], ["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/mailer/reset_password_instructions.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/mailer/reset_password_instructions.html.erb (1.2ms)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 16.9ms
+Completed 500 Internal Server Error in 652ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    2: 
+    3: <p>Someone has requested a link to change your password. You can do this through the link below.</p>
+    4: 
+    5: <p><%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token) %></p>
+    6: 
+    7: <p>If you didn't request this, please ignore this email.</p>
+    8: <p>Your password won't change until you access the link above and create a new one.</p>
+  
+actionpack (5.0.0.1) lib/action_dispatch/http/url.rb:62:in `full_url_for'
+actionpack (5.0.0.1) lib/action_dispatch/http/url.rb:52:in `url_for'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:303:in `block in <class:RouteSet>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:719:in `url_for'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:236:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:177:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:295:in `block (2 levels) in define_url_helper'
+actionpack (5.0.0.1) lib/action_dispatch/routing/routes_proxy.rb:32:in `edit_user_password_url'
+actionpack (5.0.0.1) lib/action_dispatch/routing/routes_proxy.rb:35:in `method_missing'
+devise (4.2.0) lib/devise/controllers/url_helpers.rb:51:in `block (4 levels) in generate_helpers!'
+devise (4.2.0) app/views/devise/mailer/reset_password_instructions.html.erb:5:in `__var_lib_gems_______gems_devise_______app_views_devise_mailer_reset_password_instructions_html_erb___1064604893693481552_53105340'
+actionview (5.0.0.1) lib/action_view/template.rb:158:in `block in render'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:348:in `instrument'
+actionview (5.0.0.1) lib/action_view/template.rb:156:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:54:in `block (2 levels) in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:53:in `block in render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:61:in `render_with_layout'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.0.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.0.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+actionview (5.0.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.0.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:919:in `block in collect_responses_from_templates'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:916:in `each'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:916:in `each'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:916:in `map'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:916:in `collect_responses_from_templates'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:908:in `collect_responses'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:816:in `mail'
+devise (4.2.0) lib/devise/mailers/helpers.rb:16:in `devise_mail'
+devise (4.2.0) app/mailers/devise/mailer.rb:12:in `reset_password_instructions'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionmailer (5.0.0.1) lib/action_mailer/rescuable.rb:23:in `block in process'
+actionmailer (5.0.0.1) lib/action_mailer/rescuable.rb:15:in `handle_exceptions'
+actionmailer (5.0.0.1) lib/action_mailer/rescuable.rb:22:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:595:in `block in process'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionmailer (5.0.0.1) lib/action_mailer/base.rb:594:in `process'
+actionmailer (5.0.0.1) lib/action_mailer/message_delivery.rb:105:in `block in processed_mailer'
+actionmailer (5.0.0.1) lib/action_mailer/message_delivery.rb:104:in `tap'
+actionmailer (5.0.0.1) lib/action_mailer/message_delivery.rb:104:in `processed_mailer'
+actionmailer (5.0.0.1) lib/action_mailer/message_delivery.rb:95:in `deliver_now'
+devise (4.2.0) lib/devise/models/authenticatable.rb:191:in `send_devise_notification'
+devise (4.2.0) lib/devise/models/recoverable.rb:93:in `send_reset_password_instructions_notification'
+devise (4.2.0) lib/devise/models/recoverable.rb:46:in `send_reset_password_instructions'
+devise (4.2.0) lib/devise/models/recoverable.rb:119:in `send_reset_password_instructions'
+devise (4.2.0) app/controllers/devise/passwords_controller.rb:13:in `create'
+actionpack (5.0.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:16:in `block in <class:Constraints>'
+actionpack (5.0.0.1) lib/action_dispatch/routing/mapper.rb:46:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.0ms)
+Started GET "/" for ::1 at 2016-11-13 12:12:42 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:WelcomeController> at /home/peter/Ruby/onlinejudge/app/controllers/welcome_controller.rb:2)
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-11-13 12:12:43 -0800
+Started GET "/users/sign_in" for ::1 at 2016-11-13 12:12:43 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 41ms (Views: 22.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-11-13 15:08:52 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:WelcomeController> at /home/peter/Ruby/onlinejudge/app/controllers/welcome_controller.rb:2)
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 318ms (Views: 312.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-11-13 15:08:54 -0800
+Started GET "/users/sign_in" for ::1 at 2016-11-13 15:08:54 -0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 60ms (Views: 47.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-11-13 15:09:05 -0800
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3lA7Ro02fM/fHYOVFX3U/7HaFr95V6cmcq2vN2xSEJxz551kzf4EgCE1BLQIEK/cPSpd+XYlafvMEnBjnfQdrw==", "user"=>{"email"=>"peter@peterzhu.ca", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "peter@peterzhu.ca"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-11-13 23:09:05 UTC], ["last_sign_in_at", 2016-11-13 20:10:28 UTC], ["sign_in_count", 12], ["updated_at", 2016-11-13 23:09:05 UTC], ["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/panel
+Completed 302 Found in 161ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/panel" for ::1 at 2016-11-13 15:09:05 -0800
+Processing by SessionsController#panel as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/panel.html.erb within layouts/application
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" ORDER BY "contests"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered sessions/panel.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contest/1" for ::1 at 2016-11-13 15:09:12 -0800
+Processing by ContestsController#main as HTML
+  Parameters: {"contest_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering contests/main.html.erb within layouts/application
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT "problems".* FROM "problems" WHERE (contest_id = 1)[0m
+  Rendered contests/main.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 80ms (Views: 34.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/problem/1/1" for ::1 at 2016-11-13 15:09:14 -0800
+Processing by ProblemsController#main as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (2.7ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/main.html.erb within layouts/application
+  Rendered problems/main.html.erb within layouts/application (31.6ms)
+Completed 200 OK in 75ms (Views: 57.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/problem/1/1/submit" for ::1 at 2016-11-13 15:09:15 -0800
+Processing by ProblemsController#submit as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/submit.html.erb within layouts/application
+  Rendered problems/submit.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 45ms (Views: 22.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:09:24 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8Vsyqg6iPUD3wH17/2b04o1bLNtQEDMAlxyaaVF2sAHEPIlg85XunraedytIBcY0Eex/7LgNtuEwIYbl5VfRkg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23e54deda0 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-17p24kv.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.1ms)
+
+
+  
+LoadError (cannot load such file -- FileUtils):
+  
+app/controllers/code_processor.rb:2:in `<top (required)>'
+app/controllers/problems_controller.rb:19:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.1ms)
+Started GET "/problem/1/1/submit" for ::1 at 2016-11-13 15:09:49 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#submit as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/submit.html.erb within layouts/application
+  Rendered problems/submit.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 23.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:09:53 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23e5063d20 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-mwtb59.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/controllers/code_processor.rb:5:in `include'
+app/controllers/code_processor.rb:5:in `<class:CodeProcessor>'
+app/controllers/code_processor.rb:4:in `<top (required)>'
+app/controllers/problems_controller.rb:19:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.8ms)
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:10:23 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23ec1b2da0 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-1t078h.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `fild_by' for #<Class:0x007f23f0443548>
+Did you mean?  find_by
+               find_by!):
+  
+app/controllers/problems_controller.rb:19:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.1ms)
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:10:43 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23f04857e0 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-1nwvakk.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 1.8ms)
+
+
+  
+NoMethodError (undefined method `email' for nil:NilClass):
+  
+app/controllers/code_processor.rb:13:in `initialize'
+app/controllers/problems_controller.rb:19:in `new'
+app/controllers/problems_controller.rb:19:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.0ms)
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:11:21 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23e5cfbb50 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-1h8nyws.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `title' for nil:NilClass):
+  
+app/controllers/code_processor.rb:14:in `initialize'
+app/controllers/problems_controller.rb:19:in `new'
+app/controllers/problems_controller.rb:19:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (29.9ms)
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:11:43 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23f0612298 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-zarwkk.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.1ms)
+
+
+  
+NameError (undefined local variable or method `computeTime' for #<CodeProcessor:0x007f23e5da85a8>):
+  
+app/controllers/code_processor.rb:14:in `initialize'
+app/controllers/problems_controller.rb:19:in `new'
+app/controllers/problems_controller.rb:19:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.5ms)
+Started GET "/problem/1/1" for ::1 at 2016-11-13 15:12:01 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#main as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/main.html.erb within layouts/application
+  Rendered problems/main.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 66ms (Views: 32.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:12:03 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23ec272df8 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-1ykm41h.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:12:03 UTC], ["updated_at", 2016-11-13 23:12:03 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 2.6ms)
+
+
+  
+NoMethodError (undefined method `lock' for nil:NilClass):
+  
+app/controllers/code_processor.rb:20:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.3ms)
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:21 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:22 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:24 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:27 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:33 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:34 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:36 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:43 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:44 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:45 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:48 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:48 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:48 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:49 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:50 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:50 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:51 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:12:52 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:13:21 -0800
+Started PUT "/__web_console/repl_sessions/8cb66e8d8a8b16b8b8295e1c6a78b975" for ::1 at 2016-11-13 15:13:33 -0800
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:17:42 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23f05a3078 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-kjgkdb.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:17:42 UTC], ["updated_at", 2016-11-13 23:17:42 UTC]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 3.5ms)
+
+
+  
+NameError (undefined local variable or method `file' for #<CodeProcessor:0x007f23f8431048>
+Did you mean?  @file):
+  
+app/controllers/code_processor.rb:21:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.9ms)
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:17:58 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23e5b191c0 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-11dqxvz.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:17:58 UTC], ["updated_at", 2016-11-13 23:17:58 UTC]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 3.3ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - ~/Ruby/onlinejudge/tmp/codefile/Main.java):
+  
+app/helpers/problems_helper.rb:6:in `initialize'
+app/helpers/problems_helper.rb:6:in `new'
+app/helpers/problems_helper.rb:6:in `write_to_file'
+app/controllers/code_processor.rb:21:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.8ms)
+Started PUT "/__web_console/repl_sessions/0d2729a460942b1701519beba8f639be" for ::1 at 2016-11-13 15:20:40 -0800
+Started PUT "/__web_console/repl_sessions/0d2729a460942b1701519beba8f639be" for ::1 at 2016-11-13 15:20:41 -0800
+Started PUT "/__web_console/repl_sessions/0d2729a460942b1701519beba8f639be" for ::1 at 2016-11-13 15:20:58 -0800
+Started PUT "/__web_console/repl_sessions/0d2729a460942b1701519beba8f639be" for ::1 at 2016-11-13 15:21:02 -0800
+Started PUT "/__web_console/repl_sessions/0d2729a460942b1701519beba8f639be" for ::1 at 2016-11-13 15:21:04 -0800
+Started PUT "/__web_console/repl_sessions/0d2729a460942b1701519beba8f639be" for ::1 at 2016-11-13 15:21:25 -0800
+Started PUT "/__web_console/repl_sessions/0d2729a460942b1701519beba8f639be" for ::1 at 2016-11-13 15:21:29 -0800
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:21:51 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23e58b9588 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-1s5eptc.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:21:51 UTC], ["updated_at", 2016-11-13 23:21:51 UTC]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 3.9ms)
+
+
+  
+NoMethodError (undefined method `eof?' for #<Console:0x007f23f0311800>):
+  
+app/controllers/code_processor.rb:24:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.6ms)
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:23:08 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23f82f64d0 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-14tdcaj.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:23:08 UTC], ["updated_at", 2016-11-13 23:23:08 UTC]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 9.6ms)
+
+
+  
+NoMethodError (undefined method `eof?' for #<Console:0x007f23ec0a4698>):
+  
+app/controllers/code_processor.rb:24:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (30.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.6ms)
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:31:24 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23f81a6300 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-pdmeuk.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (2.3ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:31:24 UTC], ["updated_at", 2016-11-13 23:31:24 UTC]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 6.4ms)
+
+
+  
+NoMethodError (undefined method `eof?' for #<Console:0x007f23f09f4f00>):
+  
+app/controllers/code_processor.rb:24:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (46.8ms)
+Started PUT "/__web_console/repl_sessions/7f1f01d5a855ad2f1bf73e769d17f5df" for ::1 at 2016-11-13 15:31:43 -0800
+Started PUT "/__web_console/repl_sessions/7f1f01d5a855ad2f1bf73e769d17f5df" for ::1 at 2016-11-13 15:31:44 -0800
+Started PUT "/__web_console/repl_sessions/7f1f01d5a855ad2f1bf73e769d17f5df" for ::1 at 2016-11-13 15:31:45 -0800
+Started PUT "/__web_console/repl_sessions/7f1f01d5a855ad2f1bf73e769d17f5df" for ::1 at 2016-11-13 15:32:36 -0800
+Started PUT "/__web_console/repl_sessions/7f1f01d5a855ad2f1bf73e769d17f5df" for ::1 at 2016-11-13 15:32:37 -0800
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:38:52 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23f028e3d8 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-84q4ut.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:38:52 UTC], ["updated_at", 2016-11-13 23:38:52 UTC]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 3.7ms)
+
+
+  
+NoMethodError (undefined method `eof?' for #<Console:0x007f23e5c22da0>):
+  
+app/controllers/code_processor.rb:25:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (30.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (69.2ms)
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:39:33 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:39:35 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:39:39 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:39:55 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:40:04 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:40:05 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:40:07 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:40:08 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:40:11 -0800
+Started PUT "/__web_console/repl_sessions/5adb3d440f754af1df9b4ba623610155" for ::1 at 2016-11-13 15:40:37 -0800
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 15:41:40 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SjPXe1YYFTdfOTqU5xY9ttF3HqoPGPMOW22tJpgays/Sgbj+ujHTZ0zJsqbimBHiwYpKgO5YszIH/oJ5NwCoSA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f23f8bbc1a0 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-3700-11j0rcw.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-13 23:41:40 UTC], ["updated_at", 2016-11-13 23:41:40 UTC]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 4.3ms)
+
+
+  
+NoMethodError (undefined method `end_of_file?' for #<Console:0x007f23f88c4f10>):
+  
+app/controllers/code_processor.rb:25:in `run'
+app/controllers/problems_controller.rb:20:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (1.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (22.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (53.5ms)
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 15:41:51 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 15:41:57 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 15:42:00 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 15:42:05 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 15:42:06 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:47:12 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:47:13 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:47:20 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:47:23 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:48:10 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:48:15 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:48:16 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:48:19 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:48:27 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:48:28 -0800
+Started PUT "/__web_console/repl_sessions/b7894ba39c50ae82c1916eb7bb13049c" for ::1 at 2016-11-13 16:48:28 -0800
+Started GET "/" for ::1 at 2016-11-13 16:48:52 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:WelcomeController> at /home/peter/Ruby/onlinejudge/app/controllers/welcome_controller.rb:2)
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 261ms (Views: 246.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-11-13 16:48:54 -0800
+Started GET "/users/sign_in" for ::1 at 2016-11-13 16:48:54 -0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/panel
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 39ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/panel" for ::1 at 2016-11-13 16:48:54 -0800
+Processing by SessionsController#panel as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/panel.html.erb within layouts/application
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" ORDER BY "contests"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered sessions/panel.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/contest/1" for ::1 at 2016-11-13 16:48:55 -0800
+Processing by ContestsController#main as HTML
+  Parameters: {"contest_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering contests/main.html.erb within layouts/application
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT "problems".* FROM "problems" WHERE (contest_id = 1)[0m
+  Rendered contests/main.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 68ms (Views: 59.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/problem/1/1" for ::1 at 2016-11-13 16:48:56 -0800
+Processing by ProblemsController#main as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/main.html.erb within layouts/application
+  Rendered problems/main.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 41.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/problem/1/1/submit" for ::1 at 2016-11-13 16:48:57 -0800
+Processing by ProblemsController#submit as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/submit.html.erb within layouts/application
+  Rendered problems/submit.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 41ms (Views: 36.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 16:49:01 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W6Ke+IXOvskjC+S1S1RUNr9pyTva6QiFf68Mqcz139JuxSUyePltF2JV7uX8N2bgI96aDDL0jWTYkhAleNS+QQ==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007fb10d5d1fb8 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-4218-c52krx.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-14 00:49:02 UTC], ["updated_at", 2016-11-14 00:49:02 UTC]]
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/submission" for ::1 at 2016-11-13 16:49:43 -0800
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[36mSubmission Load (0.1ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "1"]]
+  Rendered sessions/submission.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 29.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/submission" for ::1 at 2016-11-13 16:49:51 -0800
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[36mSubmission Load (0.1ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "1"]]
+  Rendered sessions/submission.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 42ms (Views: 35.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/submission" for ::1 at 2016-11-13 16:49:53 -0800
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[36mSubmission Load (0.3ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "1"]]
+  Rendered sessions/submission.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 59ms (Views: 47.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-11-13 16:50:48 -0800
+Completed 401 Unauthorized in 110383ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/" for ::1 at 2016-11-13 16:50:55 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:WelcomeController> at /home/peter/Ruby/onlinejudge/app/controllers/welcome_controller.rb:2)
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 229ms (Views: 215.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-11-13 16:50:57 -0800
+Started GET "/users/sign_in" for ::1 at 2016-11-13 16:50:57 -0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/panel
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 31ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/panel" for ::1 at 2016-11-13 16:50:57 -0800
+Processing by SessionsController#panel as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/panel.html.erb within layouts/application
+  [1m[36mContest Load (6.4ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" ORDER BY "contests"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered sessions/panel.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 45ms (Views: 36.7ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/contest/1" for ::1 at 2016-11-13 16:50:58 -0800
+Processing by ContestsController#main as HTML
+  Parameters: {"contest_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering contests/main.html.erb within layouts/application
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT "problems".* FROM "problems" WHERE (contest_id = 1)[0m
+  Rendered contests/main.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 59ms (Views: 51.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/problem/1/1" for ::1 at 2016-11-13 16:50:59 -0800
+Processing by ProblemsController#main as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/main.html.erb within layouts/application
+  Rendered problems/main.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 51ms (Views: 43.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/problem/1/1/submit" for ::1 at 2016-11-13 16:51:09 -0800
+Processing by ProblemsController#submit as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/submit.html.erb within layouts/application
+  Rendered problems/submit.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 16:51:14 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xRQoH+USJ5Xzq0qyshG8sJ+RajL4MUDMLPnVEImPGF/wc5PVGCX0S7L1QOIFco5mAyY5BRAsxS2LxMmcPa55zA==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f066da14be8 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-4269-145qwch.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 0.1ms)
+
+
+  
+NameError (undefined local variable or method `code_processor' for #<ProblemsController:0x007f066da154a8>):
+  
+app/controllers/problems_controller.rb:22:in `upload'
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.0ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.2ms)
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-14 00:51:15 UTC], ["updated_at", 2016-11-14 00:51:15 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2016-11-13 16:51:46 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:WelcomeController> at /home/peter/Ruby/onlinejudge/app/controllers/welcome_controller.rb:2)
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 249ms (Views: 237.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/submission" for ::1 at 2016-11-13 16:51:49 -0800
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[36mSubmission Load (0.1ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "1"]]
+  Rendered sessions/submission.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 69ms (Views: 34.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-11-13 16:51:53 -0800
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 45ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2016-11-13 16:51:54 -0800
+Started GET "/users/sign_in" for ::1 at 2016-11-13 16:51:54 -0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/panel
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 19ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/panel" for ::1 at 2016-11-13 16:51:54 -0800
+Processing by SessionsController#panel as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/panel.html.erb within layouts/application
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" ORDER BY "contests"."id" ASC LIMIT ?[0m  [["LIMIT", 1000]]
+  Rendered sessions/panel.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contest/1" for ::1 at 2016-11-13 16:51:55 -0800
+Processing by ContestsController#main as HTML
+  Parameters: {"contest_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mContest Load (0.1ms)[0m  [1m[34mSELECT  "contests".* FROM "contests" WHERE "contests"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering contests/main.html.erb within layouts/application
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT "problems".* FROM "problems" WHERE (contest_id = 1)[0m
+  Rendered contests/main.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 67ms (Views: 59.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/problem/1/1" for ::1 at 2016-11-13 16:51:56 -0800
+Processing by ProblemsController#main as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.2ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/main.html.erb within layouts/application
+  Rendered problems/main.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 47ms (Views: 40.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/problem/1/1/submit" for ::1 at 2016-11-13 16:51:57 -0800
+Processing by ProblemsController#submit as HTML
+  Parameters: {"contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering problems/submit.html.erb within layouts/application
+  Rendered problems/submit.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 16:52:04 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP0DPVyiG89YLhX9Zh3qoXMdlx/2RP0sRDQalIPZJ535mrj3oZXIERlwH63Rfth376rEKB5ZeM3jCQYYN/hGDg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f7acc492e80 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-4298-fyqaex.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/submission
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/submission" for ::1 at 2016-11-13 16:52:04 -0800
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[35mSQL (11.9ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-14 00:52:04 UTC], ["updated_at", 2016-11-14 00:52:04 UTC]]
+  [1m[36mSubmission Load (0.1ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "1"]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendered sessions/submission.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/submission" for ::1 at 2016-11-13 16:54:05 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[36mSubmission Load (0.2ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "peter@peterzhu.ca"]]
+  Rendered sessions/submission.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 252ms (Views: 222.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/submission" for ::1 at 2016-11-13 16:54:46 -0800
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[36mSubmission Load (0.2ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "peter@peterzhu.ca"]]
+  Rendered sessions/submission.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 41ms (Views: 36.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 16:55:30 -0800
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP0DPVyiG89YLhX9Zh3qoXMdlx/2RP0sRDQalIPZJ535mrj3oZXIERlwH63Rfth376rEKB5ZeM3jCQYYN/hGDg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f08601d28a0 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-4406-2uln9e.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/submission
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+
+
+  [1m[36mProblem Load (0.1ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/submission" for ::1 at 2016-11-13 16:55:30 -0800
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Processing by SessionsController#submission as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-14 00:55:30 UTC], ["updated_at", 2016-11-14 00:55:30 UTC]]
+  Rendering sessions/submission.html.erb within layouts/application
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSubmission Load (0.2ms)[0m  [1m[34mSELECT "submissions".* FROM "submissions" WHERE "submissions"."email" = ?[0m  [["email", "peter@peterzhu.ca"]]
+  Rendered sessions/submission.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 49ms (Views: 44.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/problem/1/1/submit" for ::1 at 2016-11-13 16:57:17 -0800
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:ApplicationController> at /home/peter/Ruby/onlinejudge/app/controllers/application_controller.rb:4)
+Processing by ProblemsController#upload as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP0DPVyiG89YLhX9Zh3qoXMdlx/2RP0sRDQalIPZJ535mrj3oZXIERlwH63Rfth376rEKB5ZeM3jCQYYN/hGDg==", "file"=>#<ActionDispatch::Http::UploadedFile:0x007f0864225010 @tempfile=#<Tempfile:/tmp/RackMultipart20161113-4406-1676241.java>, @original_filename="Main.java", @content_type="text/x-java", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"Main.java\"\r\nContent-Type: text/x-java\r\n">, "commit"=>"Save changes", "contest_id"=>"1", "problem_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProblem Load (0.5ms)[0m  [1m[34mSELECT  "problems".* FROM "problems" WHERE "problems"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "submissions" ("email", "problem_name", "runtime", "result", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "peter@peterzhu.ca"], ["problem_name", "Probs"], ["runtime", 0], ["result", "Running"], ["created_at", 2016-11-14 00:57:28 UTC], ["updated_at", 2016-11-14 00:57:28 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 401 Unauthorized in 8481ms (ActiveRecord: 5.5ms)
+
+

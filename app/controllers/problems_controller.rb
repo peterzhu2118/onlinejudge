@@ -16,7 +16,10 @@ class ProblemsController < ApplicationController
     if file_extension_check(uploaded_file)
       # Check the file size, if it is over flash an error
       if file_size_check(uploaded_file)
-        write_to_file(params[:file], '/home/peter/testing.java')
+        #thread = Thread.new {
+        code_processor = CodeProcessor.new(uploaded_file, Problem.find_by(id: params[:problem_id]), current_user)
+        code_processor.run
+        #}
         redirect_to '/submission'
       else
         flash.now[:error] = "File size exceeded"

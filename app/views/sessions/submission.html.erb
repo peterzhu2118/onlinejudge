@@ -39,9 +39,9 @@ tr:nth-child(even) {
 							</tr>
 							<% @submissions.each do |sub| %>
 							<tr>
-							<th>sub.problem_name</th>
-							<th>sub.runtime</th>
-							<th>sub.result</th>
+							<th><%= sub.problem_name %></th>
+							<th><%= sub.runtime %></th>
+							<th><%= sub.result %></th>
 							</tr>
 							<% end %>
 						</table>
