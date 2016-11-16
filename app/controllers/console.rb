@@ -2,9 +2,7 @@ require "io/console"
 
 class Console
   def initialize(loc)
-    @command_line_loc = loc
-
-    @cmd_line = IO.popen(@command_line_loc, "r+")
+    @cmd_line = IO.popen(loc, "r+")
   end
 
   def run_cmd(command)
@@ -16,6 +14,7 @@ class Console
   end
 
   def read_all
+    puts "read"
     return @cmd_line.read
   end
 
