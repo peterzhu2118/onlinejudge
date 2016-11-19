@@ -14,8 +14,15 @@
 					<div class="innertube">
 						<h1>Submit</h1>
 						<%= form_tag "/problem/#{params[:contest_id]}/#{params[:problem_id]}/submit", :multipart => true do%>
+							Language:
+							<br>
+							<%= select_tag "lang", options_for_select(["C++", "Java","Python 2", "Python 3"]) %>
+							<br> <br>
+							File:
+							<br>
 							<%= file_field_tag "file" %>
-							<%= submit_tag %>
+							<br> <br>
+							<%= submit_tag "Submit"%>
 						<% end %>
 					</div>
 				</div>

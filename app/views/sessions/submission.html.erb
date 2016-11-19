@@ -36,12 +36,16 @@ tr:nth-child(even) {
 							<th>Problem</th>
 							<th>Runtime</th>
 							<th>Result</th>
+							<th>Language</th>
+							<th>Submission Date</th>
 							</tr>
 							<% @submissions.each do |sub| %>
 							<tr>
-							<th><%= sub.problem_name %></th>
-							<th><%= sub.runtime %></th>
-							<th><%= sub.result %></th>
+							<td><%= sub.problem_name %></td>
+							<td><%= sub.runtime %></td>
+							<td><%= sub.result %></td>
+							<td><%= sub.language %></td>
+							<td><%= sub.created_at %></td>
 							</tr>
 							<% end %>
 						</table>
