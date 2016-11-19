@@ -1,32 +1,49 @@
-require "io/console"
+require "open3"
 
 class Console
-  def initialize(loc)
-    @cmd_line = IO.popen(loc, "r+")
+  def initialize(cmd)
+    @stdin, @stdout, @stderr, @wait_thr = Open3.popen3(cmd)
   end
 
-  def run_cmd(command)
-    @cmd_line.puts(command)
+  def write(str)
+    @stdin.puts(str)
   end
 
-  def get_response
-    return @cmd_line.readline
+  def end_write
+    @stdin.close
+  end
+
+  def error?
+    !(@stderr.eof?)
+  end
+
+  def read_error
+    return @stderr.read
+  end
+
+  def read_line
+    return @stdout.readline
   end
 
   def read_all
-    puts "read"
-    return @cmd_line.read
-  end
-
-  def get_pid
-    return @cmd_line.pid
+    return @stdout.read
   end
 
   def end_of_file?
-    return @cmd_line.eof?
+    return @stdout.eof?
+  end
+
+  def wait_to_finish
+    @wait_thr.value
+  end
+
+  def get_pid
+    return @wait_thr.pid
   end
 
   def close
-    @cmd_line.close
+    @stdin.close
+    @stdout.close
+    @stderr.close
   end
 end

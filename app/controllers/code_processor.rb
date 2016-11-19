@@ -2,64 +2,72 @@ require 'timeout'
 require 'fileutils'
 require 'console'
 
-require 'session'
-
 class CodeProcessor
   include ProblemsHelper
-  RUNTIME = 3
+  RUNTIME = 10
+  MUTEX_FILE = '/home/peter/Ruby/onlinejudge/tmp/mutex.lock'
 
   def initialize(file, prob, user)
     @file = file
     @problem = prob
     @user = user
     @result = Submission.create(email: @user.email, problem_name: @problem.title, runtime: 0, result: "Running")
-    @console = Session::Bash.new
   end
 
   def run
     mutex = Rails.cache.read(:mutex)
     # Locks the mutex so the current thread is the only one processing.
-    #mutex.lock
+    file_lock = File.open(MUTEX_FILE, File::CREAT)
+    file_lock.flock(File::LOCK_EX)
     write_to_file(@file, '/home/peter/Ruby/onlinejudge/tmp/codefile/Main.java')
-    puts 'no1'
-    stdout, stderr = @console.execute 'javac /home/peter/Ruby/onlinejudge/tmp/codefile/Main.java'
-    stderr.strip!
+    console = Console.new('javac /home/peter/Ruby/onlinejudge/tmp/codefile/Main.java')
     
-    if (stderr.length > 0)
+    if (console.error?)
       output_result = "Compilation Error"
       computeTime = 0
-      puts "Error : #{stderr}"
+      puts "Error Compilation"
     else
+      console.close
+      input = @problem.input
       begin
         Timeout.timeout(RUNTIME) do # Run the program within the time limit
           startTime = Time.now
-          stdout, stderr = @console.execute 'java -cp /home/peter/Ruby/onlinejudge/tmp/codefile/ Main'
+          console = Console.new('firejail java -cp /home/peter/Ruby/onlinejudge/tmp/codefile/ Main')
+          input.each_line do |line|
+            console.write(line)
+          end
+          console.wait_to_finish
+          @read = console.read_all
+          @read.strip!
           endTime = Time.now
           computeTime = endTime - startTime
         end
-        stdout.strip!
-        stderr.strip!
-        puts "Out : #{stdout}"
-        puts "Error : #{stderr}"
+        p @read
+        p @problem.output
+        puts @read == @problem.output
+
         # If the output is an exception
-        if (stderr.length > 0) 
+        if (console.error?) 
+          p console.read_error
           output_result = "Exception"
-        elsif (stdout == @problem.output) # If the output of the program is the same as the expected output
+        elsif (@read == @problem.output) # If the output of the program is the same as the expected output
           output_result = "Accepted"
         else
           output_result = "Wrong Answer"
         end
       rescue Timeout::Error # If the program did not finish within the time limit, kill the process
-        #Process.kill("INT", @console.get_pid)
-        @console.close
+        Process.kill("INT", console.get_pid)
+        console.close
         computeTime = RUNTIME
         output_result = "Time Limit Exceeded"
       end
     end
+    console.close
+    @result.update(runtime: computeTime)
     @result.update(result: output_result)
     # Deletes the folder and recreates it to delete all files inside of it.
     FileUtils.remove_dir('/home/peter/Ruby/onlinejudge/tmp/codefile')
     Dir.mkdir('/home/peter/Ruby/onlinejudge/tmp/codefile')
-    #mutex.unlock
+    file_lock.flock(File::LOCK_UN)
   end
 end

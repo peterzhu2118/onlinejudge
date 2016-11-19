@@ -19,6 +19,7 @@ module ProblemsHelper
   def file_size_check(file)
     size_range = 0..100.kilobytes
 
-    return size_range === file.read.length
+    #return size_range === file.read.length
+    return true
   end
 end
