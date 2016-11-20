@@ -11,22 +11,27 @@ class ProblemsController < ApplicationController
 
   def upload
     uploaded_file = params[:file]
-    
-    # Check the file extension, if it is wrong flash an error
-    if file_extension_check(uploaded_file)
-      # Check the file size, if it is over flash an error
-      if file_size_check(uploaded_file)
-        #thread = Thread.new {
-          code_processor = CodeProcessor.new(uploaded_file, Problem.find_by(id: params[:problem_id]), current_user, params[:lang])
-          code_processor.run
-        #}
-        redirect_to '/submission'
+    if !uploaded_file.nil?
+      # Check the file extension, if it is wrong flash an error
+      if file_extension_check(uploaded_file)
+        # Check the file size, if it is over flash an error
+        if file_size_check(uploaded_file)
+          thread = Thread.new {
+            code_processor = CodeProcessor.new(uploaded_file, Problem.find_by(id: params[:problem_id]), current_user, params[:lang])
+            code_processor.run
+          }
+          flash[:error] = "File is being processed"
+          redirect_to '/submission'
+        else
+          flash[:error] = "File size exceeded"
+          redirect_to request.original_url
+        end
       else
-        flash.now[:error] = "File size exceeded"
+        flash[:error] = "Wrong file type"
         redirect_to request.original_url
       end
     else
-      flash.now[:error] = "Wrong file type"
+      flash[:error] = "Please upload a file"
       redirect_to request.original_url
     end
   end
@@ -38,8 +43,8 @@ class ProblemsController < ApplicationController
   def main
     @problem = Problem.find_by(id: params[:problem_id])
     if (@problem.nil?)
-      flash.now[:error] = "Cannot find problem"
-      redirect_to "/contest/params[:contest_id]"
+      flash[:error] = "Cannot find problem"
+      redirect_to "/contest/#{params[:contest_id]}"
     end
   end
 end

@@ -14,8 +14,12 @@
 			</div>
 		</header>
 
-
+		<div id="wrapper">
+		<% flash.each do |name, msg| %>
+			<div class="warning"><%= msg %></div>
+		<% end %>
     		<%= yield %>
+		</div>
 
 		<footer id="footer">
 			<div class="innertube">
