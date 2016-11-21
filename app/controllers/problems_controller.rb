@@ -16,7 +16,8 @@ class ProblemsController < ApplicationController
       if file_extension_check(uploaded_file)
         # Check the file size, if it is over flash an error
         if file_size_check(uploaded_file)
-          thread = Thread.new {
+          puts params[:lang]
+         thread = Thread.new {
             code_processor = CodeProcessor.new(uploaded_file, Problem.find_by(id: params[:problem_id]), current_user, params[:lang])
             code_processor.run
           }
