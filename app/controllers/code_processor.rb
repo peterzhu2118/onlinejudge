@@ -9,11 +9,11 @@ class CodeProcessor
   MUTEX_FILE = "#{ROOT_DIR}/tmp/mutex.lock"
 
   def initialize(file, prob, user, lang)
-    @file = file
+    @file = file.read
     @problem = prob
     @user = user
     @language = lang
-    @result = Submission.create(email: @user.email, problem_name: @problem.title, language: @language, runtime: 0, result: "Running")
+    @result = Submission.create(email: @user.email, problem_name: @problem.title, language: @language, runtime: 0, result: "Running", code: @file)
   end
 
   def run
@@ -51,9 +51,11 @@ private
         Timeout.timeout(RUNTIME) do # Run the program within the time limit
           startTime = Time.now
           console = Console.new("firejail java -cp #{ROOT_DIR}/tmp/codefile/ Main")
+          # Write the output to the console line by line
           input.each_line do |line|
             console.write(line)
           end
+          # Wait for the console to finish
           console.wait_to_finish
           read = console.read_all
           read.strip!
@@ -85,6 +87,7 @@ private
   end
   
   def run_cpp
+    puts "run cpp"
     # Locks the mutex so the current thread is the only one processing.
     file_lock = File.open(MUTEX_FILE, File::CREAT)
     file_lock.flock(File::LOCK_EX)
