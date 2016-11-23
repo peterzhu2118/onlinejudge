@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

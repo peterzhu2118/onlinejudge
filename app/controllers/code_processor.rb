@@ -37,7 +37,9 @@ private
     # Locks the mutex so the current thread is the only one processing.
     file_lock = File.open(MUTEX_FILE, File::CREAT)
     file_lock.flock(File::LOCK_EX)
+    # Write the file to disk
     write_to_file(@file, "#{ROOT_DIR}/tmp/codefile/Main.java")
+    # Compile the Java file
     console = Console.new("javac #{ROOT_DIR}/tmp/codefile/Main.java")
     
     if (console.error?)
@@ -48,15 +50,17 @@ private
       input = @problem.input
       begin
         read = ""
-        Timeout.timeout(RUNTIME) do # Run the program within the time limit
+        Timeout.timeout(RUNTIME) do # Run the submission within the time limit
           startTime = Time.now
+          # Run the compiled Java file
           console = Console.new("firejail java -cp #{ROOT_DIR}/tmp/codefile/ Main")
-          # Write the output to the console line by line
+          # Write the input to the console line by line
           input.each_line do |line|
             console.write(line)
           end
           # Wait for the console to finish
           console.wait_to_finish
+          # Read the output
           read = console.read_all
           read.strip!
           endTime = Time.now
@@ -68,7 +72,7 @@ private
           output_result = "Runtime Exception"
         elsif (read == @problem.output) # If the output of the program is the same as the expected output
           output_result = "Accepted"
-        else
+        else # Otherwise the answer is wrong
           output_result = "Wrong Answer"
         end
       rescue Timeout::Error # If the program did not finish within the time limit, kill the process
@@ -79,22 +83,24 @@ private
       end
     end
     console.close
+    # Update the result with the runtime and the result
     @result.update(runtime: computeTime)
     @result.update(result: output_result)
-    # Deletes the folder and recreates it to delete all files inside of it.
+    # Reset the temporary folder
     reset_folder
     file_lock.flock(File::LOCK_UN)
   end
   
   def run_cpp
-    puts "run cpp"
     # Locks the mutex so the current thread is the only one processing.
     file_lock = File.open(MUTEX_FILE, File::CREAT)
     file_lock.flock(File::LOCK_EX)
+    # Write the file to disk
     write_to_file(@file, "#{ROOT_DIR}/tmp/codefile/Main.cc")
+    # Compile the C++ file
     console = Console.new("g++ -o #{ROOT_DIR}/tmp/codefile/Main #{ROOT_DIR}/tmp/codefile/Main.cc")
     
-    if (console.error?)
+    if (console.error?) # If there was a error in compilation
       output_result = "Compilation Error"
       computeTime = 0
     else
@@ -102,13 +108,17 @@ private
       input = @problem.input
       begin
         read = ""
-        Timeout.timeout(RUNTIME) do # Run the program within the time limit
+        Timeout.timeout(RUNTIME) do # Run the submission within the time limit
           startTime = Time.now
-          console = Console.new("#{ROOT_DIR}/tmp/codefile/Main")
+          # Run the compiled code file
+          console = Console.new("firejail #{ROOT_DIR}/tmp/codefile/Main")
+          # Write the input into the console line by line
           input.each_line do |line|
             console.write(line)
           end
+          # Wait for the console to finish
           console.wait_to_finish
+          # Read the output
           read = console.read_all
           read.strip!
           endTime = Time.now
@@ -120,7 +130,7 @@ private
           output_result = "Runtime Exception"
         elsif (read == @problem.output) # If the output of the program is the same as the expected output
           output_result = "Accepted"
-        else
+        else # Otherwise, the answer is wrong
           output_result = "Wrong Answer"
         end
       rescue Timeout::Error # If the program did not finish within the time limit, kill the process
@@ -132,10 +142,12 @@ private
     end
     
     console.close
+    # Update the runtime and result of the submission
     @result.update(runtime: computeTime)
     @result.update(result: output_result)
-    # Deletes the folder and recreates it to delete all files inside of it.
+    # Reset the temporary folder
     reset_folder
+    # Unlock the lock on the file
     file_lock.flock(File::LOCK_UN)
       
   end
@@ -144,19 +156,24 @@ private
     # Locks the mutex so the current thread is the only one processing.
     file_lock = File.open(MUTEX_FILE, File::CREAT)
     file_lock.flock(File::LOCK_EX)
+    # Writes the file to disk
     write_to_file(@file, "#{ROOT_DIR}/tmp/codefile/Main.py")
     begin
       read = ""
       console = nil
       computeTime = 0
       input = @problem.input
-      Timeout.timeout(RUNTIME) do
+      Timeout.timeout(RUNTIME) do # Run the submission within the time limit
         startTime = Time.now
+        # Run the code
         console = Console.new("firejail python2 #{ROOT_DIR}/tmp/codefile/Main.py")
+        # Write the input into the console line by line
         input.each_line do |line|
           console.write(line)
         end
+        # Wait for the console to finish
         console.wait_to_finish
+        # Read the output from the console
         read = console.read_all
         read.strip!
         endTime = Time.now
@@ -168,7 +185,7 @@ private
         output_result = "Runtime Exception"
       elsif (read == @problem.output) # If the output of the program is the same as the expected output
         output_result = "Accepted"
-      else
+      else # Otherwise, the answer is wrong
         output_result = "Wrong Answer"
       end
     rescue Timeout::Error # If the program did not finish within the time limit, kill the process
@@ -178,10 +195,12 @@ private
       output_result = "Time Limit Exceeded"
     end
     console.close
+    # Update the results with the runtime and the result
     @result.update(runtime: computeTime)
     @result.update(result: output_result)
-    # Deletes the folder and recreates it to delete all files inside of it.
+    # Reset the temporary folder
     reset_folder
+    # Unlock the lock on the file
     file_lock.flock(File::LOCK_UN)
   end
 
@@ -189,19 +208,24 @@ private
     # Locks the mutex so the current thread is the only one processing.
     file_lock = File.open(MUTEX_FILE, File::CREAT)
     file_lock.flock(File::LOCK_EX)
+    # Write the file to disk
     write_to_file(@file, "#{ROOT_DIR}/tmp/codefile/Main.py")
     begin
       read = ""
       console = nil
       computeTime = 0
       input = @problem.input
-      Timeout.timeout(RUNTIME) do
+      Timeout.timeout(RUNTIME) do # Run the submission within the time limit
         startTime = Time.now
+        # Run the code
         console = Console.new("firejail python3 #{ROOT_DIR}/tmp/codefile/Main.py")
+        # Write the input to the console line by line
         input.each_line do |line|
           console.write(line)
         end
+        # Wait for the console to finish
         console.wait_to_finish
+        # Read the output
         read = console.read_all
         read.strip!
         endTime = Time.now
@@ -213,7 +237,7 @@ private
         output_result = "Runtime Exception"
       elsif (read == @problem.output) # If the output of the program is the same as the expected output
         output_result = "Accepted"
-      else
+      else # Otherwise, the answer is wrong
         output_result = "Wrong Answer"
       end
     rescue Timeout::Error # If the program did not finish within the time limit, kill the process
@@ -223,14 +247,17 @@ private
       output_result = "Time Limit Exceeded"
     end
     console.close
+    # Update the result with the runtime and the result
     @result.update(runtime: computeTime)
     @result.update(result: output_result)
-    # Deletes the folder and recreates it to delete all files inside of it.
+    # Reset the folder
     reset_folder
+    # Unlock the lock on the file
     file_lock.flock(File::LOCK_UN)
   end
   
   def reset_folder
+    # Remove the folder and recreate it so the folder is reset
     FileUtils.remove_dir("#{ROOT_DIR}/tmp/codefile")
     Dir.mkdir("#{ROOT_DIR}/tmp/codefile")
   end

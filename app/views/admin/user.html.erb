@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>View User - CS Club Online Judge</title>	
+	</head>
+	
+	<body>		
+		
+		<div id="wrapper">
+		
+			<main>
+				<div id="content">
+					<div class="innertube">
+						<h1>View User</h1>
+						
+						<%= form_for User.find_by(id: params[:id]) do |u| %>
+						  First name: <%= u.text_field(:first_name) %>
+						  <br> <br>
+						  Last name: <%= u.text_field(:last_name) %>
+						  <br> <br>
+						  Email: <%= u.text_field(:email) %>
+						  <br> <br>
+						  Password: <%= u.text_field(:password) %>
+						  <%= u.submit %>
+						<% end %>
+						<br>
+						<%= button_to "Delete user", '/admin/user/:id/delete', method: 'delete', data: {confirm: 'Are you sure?'} %>
+						
+						<h2>Submissions</h2>
+						
+					</div>
+				</div>
+			</main>
+			
+			<nav id="nav">
+				<div class="innertube">
+					<h3>Left heading</h3>
+					<ul>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+						<li><a href="#">Link 4</a></li>
+						<li><a href="#">Link 5</a></li>
+					</ul>
+					<h3>Left heading</h3>
+					<ul>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+						<li><a href="#">Link 4</a></li>
+						<li><a href="#">Link 5</a></li>
+					</ul>
+					<h3>Left heading</h3>
+					<ul>
+						<li><a href="#">Link 1</a></li>
+						<li><a href="#">Link 2</a></li>
+						<li><a href="#">Link 3</a></li>
+						<li><a href="#">Link 4</a></li>
+						<li><a href="#">Link 5</a></li>
+					</ul>
+				</div>
+			</nav>
+		
+		</div>
+	
+	</body>

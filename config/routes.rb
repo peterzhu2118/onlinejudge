@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   #resources :submissions, only: [:submit, :create]
+ 
 
   devise_for :users
   root 'welcome#index'
@@ -10,6 +11,15 @@ Rails.application.routes.draw do
   get '/problem/:contest_id/:problem_id/submit', to: 'problems#submit'
   get '/submission', to: 'sessions#submission'
   post '/problem/:contest_id/:problem_id/submit', to: 'problems#upload'
+  
+  # Admin stuff
+  get '/admin/submission', to: 'admin#allsubmissions'
+  get '/admin/submission/:id', to: 'admin#submission'
+  get '/admin/user', to: 'admin#allusers'
+  get '/admin/user/:id', to: 'admin#user'
+  delete '/admin/user/:id/delete', to: 'admin#delete_user'
+  
+  resources :users, only: [:index, :show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
