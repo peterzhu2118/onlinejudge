@@ -18,7 +18,13 @@ class AdminController < ApplicationController
   end
   
   def delete_user
-    # TO BE IMPLEMENTED
+    @user = User.find_by(id: params[:id])
+    
+    @user.destroy
+    
+    flash[:info] = "User deleted"
+    
+    redirect_to '/admin/user'
   end
   
   def new_user
@@ -31,7 +37,6 @@ class AdminController < ApplicationController
       redirect_to request.original_url
       return
     else
-      p user_params
       @user = User.new(user_params)
       if @user.save
         flash[:info] = "Added successfully"
@@ -46,6 +51,48 @@ class AdminController < ApplicationController
     @submission = Submission.find_by(id: params[:id])
     @user = User.find_by(email: @submission.email)
   end
+
+  def all_contests
+    @contests = Contest.all
+  end
+  
+  def contest
+    @contest = Contest.find_by(id: params[:id])
+    @problem = Problem.where(contest_id: @contest.id)
+  end
+  
+  def new_problem
+    @problem = Problem.new
+    @problem.contest_id = params[:id]
+  end
+  
+  def create_problem
+    @problem = Problem.new(problem_params)
+    @problem.contest_id = params[:id]
+    if @problem.save
+      flash[:info] = "Added successfully"
+    else
+      flash[:error] = "Adding failed"
+    end
+    redirect_to "/admin/contest/view/#{params[:id]}"
+  end
+  
+  def problem
+    @problem = Problem.find_by(id: params[:id])
+  end
+  
+  def update_problem
+    @problem = Problem.find_by(id: params[:id])
+    
+    if @problem.update(problem_params)
+      flash[:info] = "Updated successfully"
+    else
+      flash[:warning] = "Updating failed"
+    end
+    
+    redirect_to "/admin/contest/view/#{@problem.contest_id}"
+  end
+    
   
   private
   
@@ -64,7 +111,7 @@ class AdminController < ApplicationController
     end
   end
   
-  def other
-    return params.require(:user).permit(:first_name, :last_name, :email, :password)
+  def problem_params
+    return params.require(:problem).permit(:contest_id, :title,:problem, :input, :output)
   end
 end

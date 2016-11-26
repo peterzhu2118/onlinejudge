@@ -2,29 +2,33 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Submissions - CS Club Online Judge</title>	
+		<title>Contest - CS Club Online Judge</title>	
 	</head>
 	
 	<body>		
+		
+		<div id="wrapper">
+		
 			<main>
 				<div id="content">
 					<div class="innertube">
-						<h1>Submissions</h1>
+						<h1>Contest</h1>
+						<b>Name:</b> <%= @contest.title %>
+						<br>
+						<b>Start Time:</b> <%= @contest.begin_time.strftime("%Y-%m-%d %k:%M:%S %Z") %>
+						<br>
+						<b>End Time: </b> <%= @contest.end_time.strftime("%Y-%m-%d %k:%M:%S %Z") %>
+						<br>
+						<%= link_to "Add Problem", "/admin/problem/#{params[:id]}/new" %>
+						<hr>
+						
 						<table>
 							<tr>
-							<th>Problem</th>
-							<th>Runtime</th>
-							<th>Result</th>
-							<th>Language</th>
-							<th>Submission Date</th>
+							<th>Problem Name</th>
 							</tr>
-							<% @submissions.each do |sub| %>
+							<% @problem.each do |p| %>
 							<tr>
-							<td><%= sub.problem_name %></td>
-							<td><%= sub.runtime %></td>
-							<td><%= sub.result %></td>
-							<td><%= sub.language %></td>
-							<td><%= sub.created_at.strftime("%Y-%m-%d %k:%M:%S %Z") %></td>
+							<td><%= link_to p.title, "/admin/problem/#{p.id}/view" %></td>
 							</tr>
 							<% end %>
 						</table>
@@ -60,6 +64,8 @@
 					</ul>
 				</div>
 			</nav>
+		
+		</div>
 	
 	</body>
 </html>

@@ -25,7 +25,7 @@
 							<%= u.submit %>
 						<% end %>
 						<br>
-						<%= button_to "Delete user", "/admin/user/#{params[:id]}", method: 'delete', data: {confirm: 'Are you sure?'} %>
+						<%= button_to "Delete user", "/admin/user/view/#{params[:id]}", method: 'delete', data: {confirm: 'Are you sure?'} %>
 						
 						<h2>Submissions</h2>
 						
@@ -41,9 +41,9 @@
 							<tr>
 							<td><%= sub.problem_name %></td>
 							<td><%= sub.runtime %></td>
-							<td><%= link_to sub.result, "/admin/submission/#{sub.id}" %></td>
+							<td><%= link_to sub.result, "/admin/submission/view/#{sub.id}" %></td>
 							<td><%= sub.language %></td>
-							<td><%= sub.created_at %></td>
+							<td><%= sub.created_at.strftime("%Y-%m-%d %k:%M:%S %Z") %></td>
 							</tr>
 							<% end %>
 						</table>

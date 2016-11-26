@@ -43,9 +43,9 @@ tr:nth-child(even) {
 						</tr>
 						<%= Contest.find_each do |contest| %>
 							<tr>
-							<th> <%= link_to contest.title, "/contest/#{contest.id}" %> </th> 
-							<th> <%= contest.begin_time %> </th>
-							<th> <%= contest.end_time %> </th>
+							<td> <%= link_to contest.title, "/contest/#{contest.id}" %> </td> 
+							<td> <%= contest.begin_time.strftime("%Y-%m-%d %k:%M:%S %Z") %> </td>
+							<td> <%= contest.end_time.strftime("%Y-%m-%d %k:%M:%S %Z") %> </td>
 							</tr>
 						<% end %>
 						</table>
