@@ -5,7 +5,7 @@ class AdminController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
   
-   def update_user
+  def update_user
     @user = User.find_by(id: params[:id])
     
     if @user.update(user_params)
@@ -40,6 +40,11 @@ class AdminController < ApplicationController
       end
       redirect_to "/admin/user/"
     end
+  end
+  
+  def submission
+    @submission = Submission.find_by(id: params[:id])
+    @user = User.find_by(email: @submission.email)
   end
   
   private
