@@ -11,6 +11,10 @@
 		<header id="header">
 			<div class="innertube">
 				<h1>EOM's CS Club Online Judge</h1>
+				<br>
+				<% if user_signed_in? %>
+					<%= button_to("Logout", destroy_user_session_path, :method => :delete) %>
+				<% end %>
 			</div>
 		</header>
 

@@ -1,25 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Panel - CS Club Online Judge</title>	
+		<title>New User - CS Club Online Judge</title>	
 	</head>
 	
 	<body>		
@@ -29,26 +12,18 @@ tr:nth-child(even) {
 			<main>
 				<div id="content">
 					<div class="innertube">
-						<br/>
+						<h1>New User</h1>
 						
-						<h1> Contests </h1>
-
-						<br />
-
-						<table>
-						<tr>
-							<th>Contest</th>
-							<th>Start Time</th>
-							<th>End Time</th>
-						</tr>
-						<%= Contest.find_each do |contest| %>
-							<tr>
-							<th> <%= link_to contest.title, "/contest/#{contest.id}" %> </th> 
-							<th> <%= contest.begin_time %> </th>
-							<th> <%= contest.end_time %> </th>
-							</tr>
+						<%= form_for @user, url: "/admin/user/new" do |u| %>
+							First name: <%= u.text_field(:first_name) %>
+							<br> <br>
+							Last name: <%= u.text_field(:last_name) %>
+							<br> <br>
+							Email: <%= u.text_field(:email) %>
+							<br> <br>
+							Password: <%= u.password_field(:password) %>
+							<%= u.submit %>
 						<% end %>
-						</table>
 					</div>
 				</div>
 			</main>

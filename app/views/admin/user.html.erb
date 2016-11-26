@@ -14,21 +14,39 @@
 					<div class="innertube">
 						<h1>View User</h1>
 						
-						<%= form_for User.find_by(id: params[:id]) do |u| %>
-						  First name: <%= u.text_field(:first_name) %>
-						  <br> <br>
-						  Last name: <%= u.text_field(:last_name) %>
-						  <br> <br>
-						  Email: <%= u.text_field(:email) %>
-						  <br> <br>
-						  Password: <%= u.text_field(:password) %>
-						  <%= u.submit %>
+						<%= form_for @user, url: "/admin/user/view/#{params[:id]}" do |u| %>
+							First name: <%= u.text_field(:first_name) %>
+							<br> <br>
+							Last name: <%= u.text_field(:last_name) %>
+							<br> <br>
+							Email: <%= u.text_field(:email) %>
+							<br> <br>
+							Password: <%= u.password_field(:password) %>
+							<%= u.submit %>
 						<% end %>
 						<br>
-						<%= button_to "Delete user", '/admin/user/:id/delete', method: 'delete', data: {confirm: 'Are you sure?'} %>
+						<%= button_to "Delete user", "/admin/user/#{params[:id]}", method: 'delete', data: {confirm: 'Are you sure?'} %>
 						
 						<h2>Submissions</h2>
 						
+						<table>
+							<tr>
+							<th>Problem</th>
+							<th>Runtime</th>
+							<th>Result</th>
+							<th>Language</th>
+							<th>Submission Date</th>
+							</tr>
+							<% Submission.where(email: @user.email).order(created_at: :desc).each do |sub| %>
+							<tr>
+							<td><%= sub.problem_name %></td>
+							<td><%= sub.runtime %></td>
+							<td><%= link_to sub.result, "/admin/submission/#{sub.id}" %></td>
+							<td><%= sub.language %></td>
+							<td><%= sub.created_at %></td>
+							</tr>
+							<% end %>
+						</table>
 					</div>
 				</div>
 			</main>

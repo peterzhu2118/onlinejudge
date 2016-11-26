@@ -1,25 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Panel - CS Club Online Judge</title>	
+		<title>All Submissions - CS Club Online Judge</title>	
 	</head>
 	
 	<body>		
@@ -29,25 +12,26 @@ tr:nth-child(even) {
 			<main>
 				<div id="content">
 					<div class="innertube">
-						<br/>
-						
-						<h1> Contests </h1>
-
-						<br />
-
+						<h1>All Submissions</h1>
 						<table>
-						<tr>
-							<th>Contest</th>
-							<th>Start Time</th>
-							<th>End Time</th>
-						</tr>
-						<%= Contest.find_each do |contest| %>
 							<tr>
-							<th> <%= link_to contest.title, "/contest/#{contest.id}" %> </th> 
-							<th> <%= contest.begin_time %> </th>
-							<th> <%= contest.end_time %> </th>
+							<th>User</th>
+							<th>Problem</th>
+							<th>Runtime</th>
+							<th>Result</th>
+							<th>Language</th>
+							<th>Submission Date</th>
 							</tr>
-						<% end %>
+							<% Submission.all.order(created_at: :desc).each do |sub| %>
+							<tr>
+							<td><%= link_to sub.email, "/admin/user/view/#{User.find_by(email: sub.email).id}" %></td>
+							<td><%= sub.problem_name %></td>
+							<td><%= sub.runtime %></td>
+							<td><%= link_to sub.result, "/admin/submission/#{sub.id}" %></td>
+							<td><%= sub.language %></td>
+							<td><%= sub.created_at %></td>
+							</tr>
+							<% end %>
 						</table>
 					</div>
 				</div>
@@ -85,4 +69,3 @@ tr:nth-child(even) {
 		</div>
 	
 	</body>
-</html>

@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   post '/problem/:contest_id/:problem_id/submit', to: 'problems#upload'
   
   # Admin stuff
-  get '/admin/submission', to: 'admin#allsubmissions'
+  get '/admin/submission', to: 'admin#all_submissions'
   get '/admin/submission/:id', to: 'admin#submission'
-  get '/admin/user', to: 'admin#allusers'
-  get '/admin/user/:id', to: 'admin#user'
-  delete '/admin/user/:id/delete', to: 'admin#delete_user'
+  get '/admin/user', to: 'admin#all_users'
+  get '/admin/user/view/:id', to: 'admin#user'
+  delete '/admin/user/view/:id', to: 'admin#delete_user'
+  patch '/admin/user/view/:id', to: 'admin#update_user'
+  get '/admin/user/new', to: 'admin#new_user'
+  post '/admin/user/new', to: 'admin#create_user'
   
   resources :users, only: [:index, :show]
 
