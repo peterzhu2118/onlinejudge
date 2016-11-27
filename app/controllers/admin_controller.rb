@@ -61,6 +61,19 @@ class AdminController < ApplicationController
     @problem = Problem.where(contest_id: @contest.id)
   end
   
+  
+  def update_contest
+    @contest = Contest.find_by(id: params[:id])
+    
+    if @contest.update(contest_params)
+      flash[:info] = "Updated successfully"
+    else
+      flash[:warning] = "Updating failed"
+    end
+    
+    redirect_to "/admin/contest/"
+  end
+  
   def new_problem
     @problem = Problem.new
     @problem.contest_id = params[:id]
@@ -113,5 +126,9 @@ class AdminController < ApplicationController
   
   def problem_params
     return params.require(:problem).permit(:contest_id, :title,:problem, :input, :output)
+  end
+  
+  def contest_params
+    return params.require(:contest).permit(:title, :begin_time, :end_time)
   end
 end

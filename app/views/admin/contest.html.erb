@@ -13,11 +13,16 @@
 				<div id="content">
 					<div class="innertube">
 						<h1>Contest</h1>
-						<b>Name:</b> <%= @contest.title %>
-						<br>
-						<b>Start Time:</b> <%= @contest.begin_time.strftime("%Y-%m-%d %k:%M:%S %Z") %>
-						<br>
-						<b>End Time: </b> <%= @contest.end_time.strftime("%Y-%m-%d %k:%M:%S %Z") %>
+						
+						<%= form_for @contest, url: "/admin/contest/view/#{params[:id]}" do |c| %>
+							<b>Name:</b> <%= c.text_field(:title) %>
+							<br> <br>
+							<b>Start Time:</b> <%= c.date_select(:begin_time) %> <%= c.time_select(:begin_time, ignore_date: true) %>
+							<br> <br>
+							<b>End Time: </b> <%= c.date_select(:end_time) %> <%= c.time_select(:end_time, ignore_date: true) %>
+							<br><br>
+							<%= c.submit %>
+						<% end %>
 						<br>
 						<%= link_to "Add Problem", "/admin/problem/#{params[:id]}/new" %>
 						<hr>

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/admin/contest', to: 'admin#all_contests'
   get '/admin/contest/view/:id', to: 'admin#contest'
   get '/admin/contest/new', to: 'admin#new_contest'
+  patch '/admin/contest/view/:id', to: 'admin#update_contest'
   get '/admin/problem/:id/new', to: 'admin#new_problem'
   post '/admin/problem/:id/new', to: 'admin#create_problem'
   get '/admin/problem/:id/view', to: 'admin#problem'
