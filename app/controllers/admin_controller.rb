@@ -61,6 +61,21 @@ class AdminController < ApplicationController
     @problem = Problem.where(contest_id: @contest.id)
   end
   
+  def new_contest
+    @contest = Contest.new
+  end
+  
+  def create_contest
+    @contest = Contest.new(contest_params)
+    
+    if @contest.save
+      flash[:info] = "Added successfully"
+    else
+      flash[:error] = "Adding failed"
+    end
+    
+    redirect_to "/admin/contest"
+  end
   
   def update_contest
     @contest = Contest.find_by(id: params[:id])
@@ -72,6 +87,18 @@ class AdminController < ApplicationController
     end
     
     redirect_to "/admin/contest/"
+  end
+  
+  def delete_contest
+    @contest = Contest.find_by(id: params[:id])
+    @problem = Problem.where(contest_id: params[:id])
+    
+    @contest.destroy
+    @problem.destroy_all
+    
+    flash[:info] = "Deleted contest"
+    
+    redirect_to "/admin/contest"
   end
   
   def new_problem
@@ -106,6 +133,15 @@ class AdminController < ApplicationController
     redirect_to "/admin/contest/view/#{@problem.contest_id}"
   end
     
+  def delete_problem
+    @problem = Problem.find_by(id: params[:id])
+    
+    @problem.destroy
+    
+    flash[:info] = "Problem deleted"
+    
+    redirect_to "/admin/contest/"
+  end
   
   private
   

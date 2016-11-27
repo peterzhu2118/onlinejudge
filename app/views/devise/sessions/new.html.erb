@@ -4,11 +4,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Login - CS Club Online Judge</title>	
 	</head>
-
-<main>
+	
+	<body>				
+			<main>
 				<div id="content">
 					<div class="innertube">
-
 						<h2>Log in</h2>
 
 						<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -34,8 +34,10 @@
 						  </div>
 						<% end %>
 
-						<%= render "users/shared/links" %>
-
+						<%= render "devise/shared/links" %>
 					</div>
 				</div>
 			</main>
+		
+	</body>
+</html>

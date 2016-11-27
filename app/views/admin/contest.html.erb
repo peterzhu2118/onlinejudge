@@ -6,9 +6,6 @@
 	</head>
 	
 	<body>		
-		
-		<div id="wrapper">
-		
 			<main>
 				<div id="content">
 					<div class="innertube">
@@ -17,13 +14,19 @@
 						<%= form_for @contest, url: "/admin/contest/view/#{params[:id]}" do |c| %>
 							<b>Name:</b> <%= c.text_field(:title) %>
 							<br> <br>
-							<b>Start Time:</b> <%= c.date_select(:begin_time) %> <%= c.time_select(:begin_time, ignore_date: true) %>
+							<b>Start Time:</b> <%= c.date_select(:begin_time) %> <%= c.time_select(:begin_time, ignore_date:true) %>
 							<br> <br>
 							<b>End Time: </b> <%= c.date_select(:end_time) %> <%= c.time_select(:end_time, ignore_date: true) %>
 							<br><br>
 							<%= c.submit %>
 						<% end %>
+						
 						<br>
+						
+						<%= button_to "Delete Contest", "/admin/contest/view/#{params[:id]}", method: 'delete', data: {confirm: 'Are you sure?'} %>
+						
+						<br>
+						
 						<%= link_to "Add Problem", "/admin/problem/#{params[:id]}/new" %>
 						<hr>
 						
@@ -40,37 +43,5 @@
 					</div>
 				</div>
 			</main>
-			
-			<nav id="nav">
-				<div class="innertube">
-					<h3>Left heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-					<h3>Left heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-					<h3>Left heading</h3>
-					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 2</a></li>
-						<li><a href="#">Link 3</a></li>
-						<li><a href="#">Link 4</a></li>
-						<li><a href="#">Link 5</a></li>
-					</ul>
-				</div>
-			</nav>
-		
-		</div>
-	
 	</body>
 </html>

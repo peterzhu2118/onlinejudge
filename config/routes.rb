@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
   get '/login', to: redirect('/users/sign_in')
+  get '/faq', to: 'welcome#faq'
+  get '/about', to: 'welcome#about'
+  get '/quickstart', to: 'welcome#quickstart'
   get '/panel', to: 'sessions#panel'
   get '/contest/:contest_id', to: 'contests#main'
   get '/problem/:contest_id/:problem_id', to: 'problems#main'
@@ -22,12 +25,15 @@ Rails.application.routes.draw do
   post '/admin/user/new', to: 'admin#create_user'
   get '/admin/contest', to: 'admin#all_contests'
   get '/admin/contest/view/:id', to: 'admin#contest'
+  delete '/admin/contest/view/:id', to: 'admin#delete_contest'
   get '/admin/contest/new', to: 'admin#new_contest'
+  post '/admin/contest/new', to: 'admin#create_contest'
   patch '/admin/contest/view/:id', to: 'admin#update_contest'
   get '/admin/problem/:id/new', to: 'admin#new_problem'
   post '/admin/problem/:id/new', to: 'admin#create_problem'
   get '/admin/problem/:id/view', to: 'admin#problem'
   patch '/admin/problem/:id/view', to: 'admin#update_problem'
+  delete '/admin/problem/:id/view', to: 'admin#delete_problem'
   
   
   resources :users, only: [:index, :show]
