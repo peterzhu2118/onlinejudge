@@ -9,13 +9,14 @@
 			<main>
 				<div id="content">
 					<div class="innertube">
+						<%= link_to "Back", "/contest/#{params[:contest_id]}/" %>
 						<h1><%= @problem.title %></h1>
 						Runtime: <%= @problem.runtime %>s
 						<br/>
 						Memory limit: <%= @problem.memory %>M
 						<br/>
 						<h2>Problem:</h2>
-						<%= simple_format(@problem.problem) %>
+						<pre><%= @problem.problem %></pre>
 						<%= link_to "Submit", "/problem/#{params[:contest_id]}/#{params[:problem_id]}/submit" %>
 
 					</div>

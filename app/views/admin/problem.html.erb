@@ -10,6 +10,8 @@
 			<main>
 				<div id="content">
 					<div class="innertube">
+						<%= link_to "Back", "/admin/contest/view/#{@problem.contest_id}/" %>
+					
 						<h1>View Problem</h1>
 						
 						<%= form_for @problem, url: "/admin/problem/#{params[:id]}/view" do |p| %>

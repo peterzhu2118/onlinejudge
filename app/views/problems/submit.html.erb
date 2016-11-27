@@ -23,6 +23,8 @@
 							<br> <br>
 							<%= submit_tag "Submit"%>
 						<% end %>
+						
+						<%= link_to "Cancel", "/problem/#{params[:contest_id]}/#{params[:problem_id]}" %>
 					</div>
 				</div>
 			</main>	

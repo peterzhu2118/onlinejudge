@@ -108,3 +108,10 @@ table {
 		tr:nth-child(even) {
 		    background-color: #dddddd;
 		}
+		
+		pre {
+    display: block;
+    font-family: courier;
+    white-space: pre;
+    margin: 1em 0;
+} 
