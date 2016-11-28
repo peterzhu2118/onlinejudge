@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Edit User - CS Club Online Judge</title>	
+	</head>
+	
+	<body>		
+			<main>
+				<div id="content">
+					<div class="innertube">
+						<h1>Edit User</h1>
+						First name: <%= @user.first_name %>
+						<br>
+						Last name: <%= @user.last_name %>
+						<br>
+						Email: <%= @user.email %>
+						<br><br>
+						<b>TO CHANGE THIS INFO TALK TO THE SYSTEM ADMINISTRATOR</b>
+						<hr>
+						<h2>Change Password</h2>
+						<b> If you do not have your current password, talk to the system administrator</b>
+						<br>
+						Minimum length for new password is 6 characters, maximum 30.
+						<br><br>
+						<%= form_for @user, url: "/user/edit" do |u|%>
+							Current password: <%= u.password_field(:current_password) %>
+							<br><br>
+							New Password: <%= u.password_field(:password) %>
+							<br><br>
+							Confirm Password: <%= u.password_field(:password_confirmation) %>
+							<br><br>
+							<%= u.submit %>
+						<% end %>
+					</div>
+				</div>
+			</main>
+	</body>
+</html>

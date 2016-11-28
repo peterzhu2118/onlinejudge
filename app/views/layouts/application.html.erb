@@ -22,6 +22,7 @@
 		<% flash.each do |name, msg| %>
 			<div class="warning"><%= msg %></div>
 		<% end %>
+		
     		<%= yield %>
     		
     		<nav id="nav">
@@ -40,6 +41,7 @@
 					<ul>
 						<li><a href="/panel">Contests</a></li>
 						<li><a href="/submission">Submissions</a></li>
+						<li><a href="/user/edit">Edit Account</a></li>
 					</ul>
 					
 					<!-- Sidebar if current user is admin -->

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/about', to: 'welcome#about'
   get '/quickstart', to: 'welcome#quickstart'
   get '/panel', to: 'sessions#panel'
+  get '/user/edit', to: 'sessions#edit_user'
+  patch '/user/edit', to: 'sessions#update_user'
   get '/contest/:contest_id', to: 'contests#main'
   get '/problem/:contest_id/:problem_id', to: 'problems#main'
   get '/problem/:contest_id/:problem_id/submit', to: 'problems#submit'
