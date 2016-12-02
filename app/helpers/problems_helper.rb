@@ -10,8 +10,6 @@ module ProblemsHelper
   def file_extension_check(file, lang)
     extension = File.extname(file.path)
     
-    puts extension
-    
     case lang
     when "C++"
       return extension == ".cpp" || extension == ".cc"

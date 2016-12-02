@@ -108,6 +108,8 @@ class AdminController < ApplicationController
   
   def create_problem
     @problem = Problem.new(problem_params)
+    @problem.input.gsub!("\r", "")
+    @problem.output.gsub!("\r", "")
     @problem.contest_id = params[:id]
     if @problem.save
       flash[:info] = "Added successfully"

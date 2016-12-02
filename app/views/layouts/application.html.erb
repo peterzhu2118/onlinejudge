@@ -3,6 +3,8 @@
   <head>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -11,7 +13,6 @@
 		<header id="header">
 			<div class="innertube">
 				<h1>EOM's CS Club Online Judge</h1>
-				<br>
 				<% if user_signed_in? %>
 					<%= button_to("Logout", destroy_user_session_path, :method => :delete) %>
 				<% end %>
@@ -32,7 +33,7 @@
 				<ul>
 						<li><a href="/quickstart">Quickstart</a></li>
 						<li><a href="/faq">FAQ</a></li>
-						<li><a href="/About">About</a></li>
+						<li><a href="/about">About</a></li>
 				</ul>
 				
 				<!-- Sidebar for signed in users -->
