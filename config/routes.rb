@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   get '/submission', to: 'sessions#submission'
   post '/problem/:contest_id/:problem_id/submit', to: 'problems#upload'
   
+  get '/register', to: redirect('https://goo.gl/forms/qhRZpt1KRuoXBUGT2')
+  
   # Admin stuff
   get '/admin/submission', to: 'admin#all_submissions'
-  get '/admin/submission/:id', to: 'admin#submission'
+  get '/admin/submission/view/:id', to: 'admin#submission'
   get '/admin/user', to: 'admin#all_users'
   get '/admin/user/view/:id', to: 'admin#user'
   delete '/admin/user/view/:id', to: 'admin#delete_user'
