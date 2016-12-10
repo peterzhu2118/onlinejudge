@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/login', to: redirect('/users/sign_in')
   get '/faq', to: 'welcome#faq'
   get '/about', to: 'welcome#about'
-  get '/quickstart', to: 'welcome#quickstart'
   get '/panel', to: 'sessions#panel'
   get '/user/edit', to: 'sessions#edit_user'
   patch '/user/edit', to: 'sessions#update_user'
