@@ -127,6 +127,10 @@ class AdminController < ApplicationController
     @problem = Problem.find_by(id: params[:id])
     
     if @problem.update(problem_params)
+	  @problem.input.gsub!("\r", "")
+      @problem.output.gsub!("\r", "")
+	  @problem.save
+	
       flash[:info] = "Updated successfully"
     else
       flash[:warning] = "Updating failed"
