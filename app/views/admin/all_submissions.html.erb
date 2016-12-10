@@ -24,7 +24,7 @@
 							<td><%= link_to sub.email, "/admin/user/view/#{User.find_by(email: sub.email).id}" %></td>
 							<td><%= sub.problem_name %></td>
 							<td><%= sub.runtime %></td>
-							<td><%= link_to sub.result, "/admin/submission/#{sub.id}" %></td>
+							<td><%= link_to sub.result, "/admin/submission/view/#{sub.id}" %></td>
 							<td><%= sub.language %></td>
 							<td><%= sub.created_at.strftime("%Y-%m-%d %k:%M:%S %Z") %></td>
 							</tr>
