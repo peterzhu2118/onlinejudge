@@ -7,6 +7,7 @@ class CodeProcessor
   RUNTIME = 3
   ROOT_DIR = Rails.root
   MUTEX_FILE = "#{ROOT_DIR}/tmp/mutex.lock"
+  FIREJAIL_FLAGS = "--ignore=private --whitelist=#{ROOT_DIR}/tmp/codefile"
 
   def initialize(file, prob, user, lang)
     @file = file.read
@@ -53,7 +54,7 @@ private
         Timeout.timeout(RUNTIME) do # Run the submission within the time limit
           startTime = Time.now
           # Run the compiled Java file
-          console = Console.new("firejail java -cp #{ROOT_DIR}/tmp/codefile/ Main")
+          console = Console.new("firejail #{FIREJAIL_FLAGS} java -cp #{ROOT_DIR}/tmp/codefile/ Main")
           # Write the input to the console line by line
           input.each_line do |line|
             console.write(line)
@@ -111,7 +112,7 @@ private
         Timeout.timeout(RUNTIME) do # Run the submission within the time limit
           startTime = Time.now
           # Run the compiled code file
-          console = Console.new("firejail #{ROOT_DIR}/tmp/codefile/Main")
+          console = Console.new("firejail #{FIREJAIL_FLAGS} #{ROOT_DIR}/tmp/codefile/Main")
           # Write the input into the console line by line
           input.each_line do |line|
             console.write(line)
@@ -166,7 +167,7 @@ private
       Timeout.timeout(RUNTIME) do # Run the submission within the time limit
         startTime = Time.now
         # Run the code
-        console = Console.new("firejail python2 #{ROOT_DIR}/tmp/codefile/Main.py")
+        console = Console.new("firejail python2 #{FIREJAIL_FLAGS} #{ROOT_DIR}/tmp/codefile/Main.py")
         # Write the input into the console line by line
         input.each_line do |line|
           console.write(line)
@@ -218,7 +219,7 @@ private
       Timeout.timeout(RUNTIME) do # Run the submission within the time limit
         startTime = Time.now
         # Run the code
-        console = Console.new("firejail python3 #{ROOT_DIR}/tmp/codefile/Main.py")
+        console = Console.new("firejail python3 #{FIREJAIL_FLAGS} #{ROOT_DIR}/tmp/codefile/Main.py")
         # Write the input to the console line by line
         input.each_line do |line|
           console.write(line)
