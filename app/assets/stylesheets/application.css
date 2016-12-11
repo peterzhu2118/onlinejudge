@@ -116,3 +116,17 @@ table {
     white-space: pre;
     margin: 1em 0;
 } 
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1.5px;
+} 
+
+pre{
+white-space:pre-wrap;
+}
