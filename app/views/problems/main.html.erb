@@ -11,9 +11,7 @@
 					<div class="innertube">
 						<%= link_to "Back", "/contest/#{params[:contest_id]}/" %>
 						<h1><%= @problem.title %></h1>
-						Runtime: <%= @problem.runtime %>s
-						<br/>
-						Memory limit: <%= @problem.memory %>M
+						Runtime: 3 seconds
 						<br/>
 						<h2>Problem:</h2>
 						<pre><%= @problem.problem %></pre>
