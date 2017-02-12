@@ -167,7 +167,7 @@ private
       Timeout.timeout(RUNTIME) do # Run the submission within the time limit
         startTime = Time.now
         # Run the code
-        console = Console.new("firejail python2 #{FIREJAIL_FLAGS} #{ROOT_DIR}/tmp/codefile/Main.py")
+        console = Console.new("firejail #{FIREJAIL_FLAGS} python2 #{ROOT_DIR}/tmp/codefile/Main.py")
         # Write the input into the console line by line
         input.each_line do |line|
           console.write(line)
@@ -219,7 +219,7 @@ private
       Timeout.timeout(RUNTIME) do # Run the submission within the time limit
         startTime = Time.now
         # Run the code
-        console = Console.new("firejail python3 #{FIREJAIL_FLAGS} #{ROOT_DIR}/tmp/codefile/Main.py")
+        console = Console.new("firejail #{FIREJAIL_FLAGS} python3 #{ROOT_DIR}/tmp/codefile/Main.py")
         # Write the input to the console line by line
         input.each_line do |line|
           console.write(line)
