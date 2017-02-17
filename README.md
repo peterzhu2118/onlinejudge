@@ -10,6 +10,7 @@ The project is written in Ruby and Ruby on Rails and will currently ONLY support
 Clone this git repo, install prerequisites and run using your desired rack server. 
 
 Prerequisites:
+
 1. [Firejail](https://github.com/netblue30/firejail)
 2. Desired Languages:
   - Java SE7 or SE8 with JRE and JDK (requires `java` and `javac` commands to work)
